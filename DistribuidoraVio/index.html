@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+        <form method="POST" id="contact" name="13" class="form-horizontal wpc_contact" novalidate="novalidate" enctype="multipart/form-data">
+            <fieldset>
+                <div id="legend" class="">
+                    <legend class="">file demoe 1</legend>
+                    <div id="alert-message" class="alert hidden"></div>
+                </div>
+            
+                <div class="control-group">
+                    <!-- Text input-->
+                    <label class="control-label" for="input01">Text input</label>
+                    <div class="controls">
+                        <input type="text" placeholder="placeholder" class="input-xlarge" name="name">
+                        <p class="help-block" style="display:none;">text_input</p>
+                    </div>
+                    <div class="control-group">  </div>
+                    <label class="control-label">File Button</label>
+            
+                    <!-- File Upload --> 
+                    <div class="controls">
+                        <input class="input-file" id="fileInput" type="file" name="file">
+                    </div>
+                </div>
+                <div class="control-group">    
+            
+                    <!-- Button --> 
+                    <div class="controls">
+                        <button id="btn" class="btn btn-success">Button</button>
+                    </div>
+                </div>
+            </fieldset>
+            </form> 
+    
+
+
+
+<script>
+    $(function(){
+        $('#btn').click(function(e){
+        alert($('input[type=file]')[0].files[0]);
+            e.preventDefault();
+            var data = new FormData();
+            data.append("name","Emilio")
+            // // Attach file
+            // formData.append('image', $('input[type=file]')[0].files[0]); 
+            
+            const xhr = new XMLHttpRequest();
+            xhr.open("POST", "prueba.php", true);
+            xhr.send(data);
+        });
+    });
+</script>
+</body>
+</html>
